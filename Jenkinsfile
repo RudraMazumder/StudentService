@@ -14,6 +14,12 @@ pipeline {
 				    echo 'Testing..'
 				    bat 'mvn clean test'
 			}
+			
+			post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
 		}
 		
 		stage("Deploy") {
