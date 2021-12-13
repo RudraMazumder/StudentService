@@ -17,6 +17,11 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<dockerfile-maven-version>1.4.10</dockerfile-maven-version>
+		<docker.image.prefix>126575542888.dkr.ecr.us-east-1.amazonaws.com</docker.image.prefix>
+        <docker.image.name>studentservice</docker.image.name>
+        <docker.image.tag>${project.version}</docker.image.tag>
+        <docker.file>Dockerfile</docker.file>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -123,24 +128,26 @@
 
 			<plugin>
 				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>${dockerfile-maven-version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<repository>spotify/foobar</repository>
-					<tag>${project.version}</tag>
-					<buildArgs>
-						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-					</buildArgs>
-				</configuration>
+              <artifactId>dockerfile-maven-plugin</artifactId>
+              <version>${dockerfile-maven-version}</version>
+              <configuration>
+                  <repository>${docker.image.prefix}/${docker.image.name}</repository>
+                  <tag>${docker.image.tag}</tag>
+                  <dockerfile>${docker.file}</dockerfile>
+                  <buildArgs>
+                      <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                  </buildArgs>
+              </configuration>
+              <executions>
+                  <execution>
+                      <id>default</id>
+                      <phase>install</phase>
+                      <goals>
+                          <goal>build</goal>
+                          <goal>push</goal>
+                      </goals>
+                  </execution>
+              </executions>
 			</plugin>
 
 
