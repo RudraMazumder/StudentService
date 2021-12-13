@@ -32,9 +32,9 @@ pipeline {
             }
 		}
 		
-		stage("deploy") {
+		stage("package") {
 				steps {
-			    echo 'Deploying..'
+			    	bat 'mvn clean install -DskipTests'
 			}
 		}
 	}
