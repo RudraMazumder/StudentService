@@ -23,6 +23,14 @@
         <docker.file>Dockerfile</docker.file>
 		
 	</properties>
+	
+	<scm>
+		<connection>scm:git:git@github.com:RudraMazumder/StudentService.git</connection>
+		<url>scm:git:git@github.com:RudraMazumder/StudentService.git</url>
+		<developerConnection>scm:git:git@github.com:RudraMazumder/StudentService.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
