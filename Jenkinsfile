@@ -8,14 +8,14 @@ pipeline {
 		
 			steps {
 			    echo 'Building..'
-			    bat 'mvn clean package -DskipTests'
+			    sh 'mvn clean package -DskipTests'
 			}			
 		}
 		
 		
 		stage("test") {
 				steps {
-				  bat 'mvn clean test'
+				  sh 'mvn clean test'
 			}
 			
 			post {
@@ -34,7 +34,7 @@ pipeline {
 		
 		stage("package") {
 				steps {
-			    	bat 'mvn clean install -DskipTests'
+			    	//sh 'mvn clean install -DskipTests'
 			}
 		}
 	}
