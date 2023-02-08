@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -41,6 +42,12 @@ public class StudentService {
 		List<StudentEntity> allStudent = studentDAO.findAll();
 		return allStudent.stream().map(StudentUtility::toStudentModel).collect(Collectors.toList());
 	}
+
+	public <T> T addAndReturn(T element, Collection<T> collection){
+		collection.add(element);
+		return element;
+	}
+
 	
 	public List<Student> getPaginatedStudent(Integer skip, Integer top){
 		Pageable paging = PageRequest.of(skip, top);

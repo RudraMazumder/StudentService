@@ -22,12 +22,7 @@
 		
 	</properties>
 	
-	<scm>
-		<connection>scm:git:git@github.com:RudraMazumder/StudentService.git</connection>
-		<url>scm:git:git@github.com:RudraMazumder/StudentService.git</url>
-		<developerConnection>scm:git:git@github.com:RudraMazumder/StudentService.git</developerConnection>
-		<tag>HEAD</tag>
-	</scm>
+
 	
 	<dependencies>
 		<dependency>
@@ -132,29 +127,29 @@
 				</executions>
 			</plugin>
 
-			<plugin>
-				<groupId>com.spotify</groupId>
-              <artifactId>dockerfile-maven-plugin</artifactId>
-              <version>${dockerfile-maven-version}</version>
-              <configuration>
-                  <repository>${docker.image.prefix}/${docker.image.name}</repository>
-                  <tag>${docker.image.tag}</tag>
-                  <dockerfile>${docker.file}</dockerfile>
-                  <buildArgs>
-                      <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                  </buildArgs>
-              </configuration>
-              <executions>
-                  <execution>
-                      <id>default</id>
-                      <phase>install</phase>
-                      <goals>
-                          <goal>build</goal>
-                          <goal>push</goal>
-                      </goals>
-                  </execution>
-              </executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.spotify</groupId>-->
+<!--              <artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--              <version>${dockerfile-maven-version}</version>-->
+<!--              <configuration>-->
+<!--                  <repository>${docker.image.prefix}/${docker.image.name}</repository>-->
+<!--                  <tag>${docker.image.tag}</tag>-->
+<!--                  <dockerfile>${docker.file}</dockerfile>-->
+<!--                  <buildArgs>-->
+<!--                      <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
+<!--                  </buildArgs>-->
+<!--              </configuration>-->
+<!--              <executions>-->
+<!--                  <execution>-->
+<!--                      <id>default</id>-->
+<!--                      <phase>install</phase>-->
+<!--                      <goals>-->
+<!--                          <goal>build</goal>-->
+<!--                          <goal>push</goal>-->
+<!--                      </goals>-->
+<!--                  </execution>-->
+<!--              </executions>-->
+<!--			</plugin>-->
 
 
 			<plugin>

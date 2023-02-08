@@ -95,6 +95,8 @@ public class StudentController implements StudentApi{
 			returningStudent = studentService.getPaginatedStudent(page, size);
 		else
 			returningStudent = studentService.getAllStudent();
+
+		//studentService.addAndReturn(returningStudent.get(0),returningStudent);
 		
 		ResponseEntity<List<Student>> response=new ResponseEntity<List<Student>>(returningStudent, HttpStatus.OK); 
 		return response; 
